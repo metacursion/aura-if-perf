@@ -1,0 +1,34 @@
+<aura:component>
+  <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+  <aura:attribute type="Object[]" name="_someItems"/>
+  <aura:attribute type="Object[]" name="control"/>
+  <aura:attribute type="Object[]" name="slower"/>
+  <aura:attribute type="Object[]" name="faster"/>
+  <aura:attribute type="Aura.Component[]" name="fastComponents"/>
+  <lightning:button onclick="{!c.renderSlow}" label="Render Slow"/>
+  <lightning:button onclick="{!c.renderControl}" label="Render Control"/>
+  <lightning:button onclick="{!c.renderFast}" label="Render Fast"/>
+  <lightning:button onclick="{!c.clear}" label="Clear"/>
+  
+  <aura:iteration items="{!v.slower}" var="i">
+    <aura:if isTrue="{!i.datatype=='potato'}">
+      <lightning:input type="number" label="{!i.label}" />
+    </aura:if>
+    <aura:if isTrue="{!i.datatype=='carrot'}">
+      <lightning:input type="number" label="{!i.label}" />
+    </aura:if>
+    <aura:if isTrue="{!i.datatype=='horse'}">
+      <lightning:input type="number" label="{!i.label}" />
+    </aura:if>
+    <aura:if isTrue="{!i.datatype=='number'}">
+      <lightning:input type="number" label="{!i.label}" />
+    </aura:if>
+    <aura:if isTrue="{!i.datatype=='string'}">
+      <lightning:input type="string" label="{!i.label}" />
+    </aura:if>
+  </aura:iteration>
+  <aura:iteration items="{!v.control}" var="i">
+      <lightning:input type="string" label="{!i.label}" />
+  </aura:iteration>
+  {!v.fastComponents}
+</aura:component>	
